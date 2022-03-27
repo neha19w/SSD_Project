@@ -1,0 +1,23 @@
+.navbar{
+    background-color: rgb(217, 220, 223);
+    
+  }
+  .navbar-brand{
+    color:  rgb(74, 104, 162);
+    margin-left: 2%;
+   
+  }
+  .btn-create{
+    background-color: rgb(74, 104, 162);
+    color: white;
+    border-radius: 4px;
+    padding: 6px;
+    margin-left: -20%;
+    border: none;
+  }
+  h6{
+    font-size: 1rem;
+    font-weight: 500;
+  }
+
+  

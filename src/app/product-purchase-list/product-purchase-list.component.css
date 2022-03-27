@@ -1,0 +1,16 @@
+.pro-list{
+    background-color:white;
+    margin:2% 5%;
+    border: rgb(163, 158, 158) solid 2px;
+    font-weight: bold;
+  }
+.purchase-Add-Button{
+    margin: 1%;
+    background-color: rgb(74, 104, 162) ;
+    color: white;
+    border: none;
+    padding: 4px 8px;
+    float: right;
+    font-size: 20px;
+   
+}

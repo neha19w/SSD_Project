@@ -1,0 +1,198 @@
+<nav class="navbar navbar-light ">
+    <h6 class="navbar-brand">Products</h6>
+    <form class="form-inline">
+        <button class="btn-create" type="button" routerLink="/products"> CREATE A NEW PRODUCT [A]
+        </button>
+    </form>
+</nav>
+
+<div class="all">
+
+    <div class="searchMain">
+        <div class="row">
+            <div class="col-2 col-offset-1">
+                <mat-form-field>
+                    <input type="text" matInput placeholder="[S] Search Product" (keyup)="onKeyUp($event)">
+                </mat-form-field><img class="simg" src="/assets/img-logo/searchicon.png">
+            </div>
+            <div class="col-2">
+                <mat-form-field>
+                    <input type="text" matInput placeholder="[S] Search Barcode" (keyup)="onKeyUpCategory($event)">
+                </mat-form-field><img class="simg" src="/assets/img-logo/searchicon.png">
+            </div>
+
+
+              <!-- <div class="col-2">
+                <mat-form-field>
+                    <mat-label> <b> Select Packing</b> </mat-label>
+                    <mat-select formControlName="packing_type">
+                        <mat-option *ngFor="let pro of productList">{{pro.packing_type}}
+                        </mat-option >
+                        <mat-option value="p">
+                        </mat-option>
+                        <mat-option value="l">
+                        </mat-option>
+                        </mat-select>
+                </mat-form-field>
+            </div>
+            <div class="col-2">
+                <mat-form-field>
+                    <mat-label><b> Select Category</b> </mat-label>
+                    <mat-select formControlName="category">
+                        <mat-option [value]="pro.id" *ngFor="let pro of productList">{{pro.category}}</mat-option>
+                    </mat-select>
+                </mat-form-field>
+            </div>
+            <div class="col-2">
+                <mat-form-field>
+                    <mat-label><b>Select Nature </b></mat-label>
+                    <mat-select>
+                        <mat-option *ngFor="let pro of productList">{{pro.nature?pro.nature.name:''}}</mat-option>
+                    </mat-select>
+                </mat-form-field>
+            
+            
+            
+            </div>  -->
+
+
+        </div>
+    </div>
+
+
+
+    <!-- <div class=" ml-5">
+    <h5 class="h5"><b><u>Search Product - </u> </b></h5>
+    <nav class="navbar">
+        <div class="d-flex" style="width: 100%;">
+            <div class="left">
+                <input class="form-control" type="text" name="product_name" placeholder="search product by name"
+                    (keyup)="onKeyUp($event)">
+            </div>
+            <div class="right">
+                <input class="form-control" name="category" placeholder="search product by category"
+                    (keyup)="onKeyUpCategory($event)">
+            </div>
+            <div class="addBtn">
+                <button class="addBtnBtn" routerLink="/products">Add Product</button>
+            </div>
+        </div>
+    </nav>
+</div> -->
+
+
+    <div class="outlets">
+        <!-- old table starting - -->
+        <!-- <div>
+            <table class="table  mt-3">
+                <thead>
+                    <tr>
+                        <th scope="col">id</th>
+                        <th scope="col">Hsn</th>
+                        <th scope="col">Product Name </th>
+                        <th scope="col">Product Detail </th>
+                     <th scope="col">Description </th> 
+                        <th scope="col">Packing Type </th>
+                        <th scope="col">Print Name </th>
+                        <th scope="col">Brand Name </th>
+                        <th scope="col">Category</th>
+                        <th scope="col">Nature </th>
+                        <th scope="col">Image</th>
+
+                        <th scope="col">Actions</th>
+                        <th scope="col">Edit</th>
+
+                    </tr>
+                </thead>
+                <tbody>
+
+                    <tr *ngFor="let pro of productList">
+
+                        <th scope="row">{{pro.id}}</th>
+                        <td>{{pro.hsn}}</td>
+                        <td>{{pro.product_name}}</td>
+                        <td>{{pro.product_detail}}</td>
+                     <td>{{pro.describtion}}</td> 
+                        <td>{{pro.packing_type}}</td>
+                        <td>{{pro.print_name}}</td>
+                        <td>{{pro.brand_name}}</td>
+                        <td>{{pro.category}}</td>
+                        <td>{{pro.nature?pro.nature.name:''}}</td>
+
+                        <td (click)="deleteItem(pro.id)">Delete</td>
+                        <td routerLink="/products/{{pro.id}}">Edit</td>
+
+                    </tr>
+                </tbody>
+            </table>
+
+        </div> -->
+        <!-- old table ends here -->
+
+
+        <table class="table">
+            <thead>
+                <tr>
+                    <th scope="col">S.no</th>
+                    <!-- <th scope="col">Hsn</th> -->
+                    
+                    <th scope="col">Product Name </th>
+                    <!-- <th scope="col">Product Detail </th> -->
+                    <!-- <th scope="col">Description </th> -->
+                    <th scope="col">Packing Type </th>
+                    <!-- <th scope="col">Print Name </th> -->
+                    <!-- <th scope="col">Brand Name </th> -->
+                    <th scope="col">Category</th>
+                    <th scope="col">Nature </th>
+                    <!-- <th scope="col">Image</th> -->
+
+                    <th scope="col">Actions</th>
+                    <!-- <th scope="col">Edit</th> -->
+
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                <tr *ngFor="let pro of productList  ;let i = index">
+
+                    <th scope="row">{{i+1}}</th>
+                    <!-- <td>{{pro.hsn}}</td> -->
+                    <td>{{pro.product_name}}</td>
+                    <!-- <td>{{pro.product_detail}}</td> -->
+                    <!-- <td>{{pro.describtion}}</td> -->
+                    <td>{{pro.packing_type}}</td>
+                    <!-- <td>{{pro.print_name}}</td> -->
+                    <!-- <td>{{pro.brand_name}}</td> -->
+                    <td>{{pro.category}}</td>
+                    <td>{{pro.nature?pro.nature.name:''}}</td>
+
+                    <td><button class="view-btn" routerLink="/view-list" ><i><img class="imgArrow" src="/assets/img-logo/arrow.png"></i>View</button>
+                        <button class="edit-btn" routerLink="/products/{{pro.id}}"><i><img
+                                    src="/assets/img-logo/edit.png"></i></button>
+                        <button class="delete-btn" (click)="deleteItem(pro.id)"><i><img
+                                    src="/assets/img-logo/delete.png"></i></button>
+                    </td>
+                </tr>
+
+            </tbody>
+        </table>
+        <div class="pagination">
+            <li>
+                <a>
+                    <label (click)="countMinus()">Previous</label>
+                </a>
+                <a [ngClass]="{active: this.filterData.page == page }" (click)="onClickPageChange(page)"
+                    *ngFor="let page of onChangePageNumber">{{page}}
+                </a>
+                <a>
+                    <label (click)="countPlus()">Next</label>
+                </a>
+            </li>
+
+        </div>
+    </div>
+
+
+
+
+</div>

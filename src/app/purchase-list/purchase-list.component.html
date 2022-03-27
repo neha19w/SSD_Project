@@ -1,0 +1,62 @@
+<div class="all"> 
+<nav class="navbar navbar-light ">
+  <h6 class="navbar-brand">Purchase</h6>
+  <!-- <form class="form-inline"> -->
+  <button class="btn-create" type="submit" routerLink="/bill-purchase-list"> + ADD A PURCHASE [A]
+  </button>
+  <!-- </form> -->
+</nav>
+
+<div>
+  <table class="table">
+    <thead>
+      <tr>
+
+        <th scope="col">Sno.</th>
+        <th scope="col">Bill No.</th>
+        <th scope="col">Image</th>
+        <th scope="col">Supplier</th>
+        <th scope="col">Date of Purchase </th>
+        <th scope="col">Purchase Amount</th>
+        <th scope="col">Inventary Status</th>
+        <th scope="col">Action</th>
+
+      </tr>
+    </thead>
+
+    <tbody>
+
+      <tr *ngFor="let pur of purchaseList  ;let i = index">
+        <th scope="row">{{i+1}}</th>
+        <td>{{pur.bill_number}}</td>
+        <td><img src="imgUrl"></td>
+        <td>{{pur.supplier.name}}</td>
+        <td>{{pur.bill_date_purchase}}</td>
+        <td>{{pur.paid_amount}}</td>
+        <td>{{pur.update_inventry_status}}</td>
+        <td> <button (click)="deleteBill(pur.id)">Delete</button> </td>
+        <td> <button class="edit-btn" routerLink="/bill/{{pur.id}}">Edit</button></td>
+      </tr>
+
+    </tbody>
+  </table>
+
+
+
+  <div class="pagination">
+    <li>
+      <a>
+        <label (click)="countMinus()">Previous</label>
+      </a>
+      <a [ngClass]="{active: this.allData.page == page }" (click)="onClickPageChange(page)"
+        *ngFor="let page of onChangePageNo">{{page}}
+      </a>
+      <a>
+        <label (click)="countPlus()">Next</label>
+      </a>
+    </li>
+
+  </div>
+</div>
+
+</div>

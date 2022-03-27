@@ -1,0 +1,37 @@
+*{
+  font-family:'Roboto', sans-serif;
+}
+
+  .home{
+float: left;
+  } 
+  .dash{
+      float: right;
+  }
+  .row{
+    margin-top: 10px;
+    margin-left: 0%;
+    margin-right: 0%;
+    padding: 0%;
+    text-decoration: none;
+    color: #000;
+    font-size: 14px;
+  }
+
+.label{
+  margin-left: -2%;
+}
+
+.no-gutter {
+  margin-right: 0;
+  margin-left: 0;
+}
+
+.no-gutter > [class*="col-"] {
+  padding-right: 0;
+  padding-left: 0;
+}
+
+.img1{
+  margin-left: 20% !important;
+}

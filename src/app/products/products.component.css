@@ -1,0 +1,108 @@
+.add-main{
+    background-color: rgb(217, 220, 223) ;
+}
+*{
+    font-family:'Roboto', sans-serif;
+  }
+
+/* .add-data{
+    width: 50%;
+    height: 50%;
+    background-color: white;
+    margin: auto;
+    
+} */
+.center {
+    
+    margin: auto;
+    width: 50%;
+    /* border: 3px solid rgb(240, 247, 240); */
+    padding: 10px;
+   
+}
+/* ::ng-deep
+  .mat-form-field-type-mat-select:not(.mat-form-field-disabled)
+  .mat-form-field-flex {
+  background-color: rgb(217, 220, 223) !important;
+} */
+/* .mat-form-field{
+    background-color: rgb(217, 220, 223) !important;
+} */
+
+.example-form {
+    min-width: 150px;
+    max-width: 500px;
+    width: 100%;
+  }
+  
+  .example-full-width {
+    width: 100%;
+  }
+  
+  td {
+    padding-right: 8px;
+  }
+
+  .example-label {
+    display: table-cell;
+    font-size: 14px;
+    margin-left: 8px;
+    min-width: 120px;
+  }
+  
+  .example-button-row {
+    display: table-cell;
+    width: 490px;
+  }
+  .example-button-row2{
+      background-color: rgb(74, 104, 162);
+      color: white;
+      float: right;
+  }
+  .mat-button-focus-overlay {
+    background-color:transparent;
+}
+    .mat-flat-button:hover {
+    background-color:transparent;
+    
+}
+.mat-form-field-flex{
+    background-color: white !important;
+}
+
+.container{
+    width: 50%;
+    margin: auto;
+}
+nav a{
+    color: #4967a4;
+}
+
+.navbar{
+    margin-bottom: 2%;
+}
+
+.add-data{
+    padding: 4%;
+    text-align: -webkit-center;
+}
+.cards{
+    float: left;
+    margin-left: 12%;
+    margin-bottom: 2%;
+    position: relative;
+}
+.searchCat{
+    margin-left: 23%;
+    width: 317px;
+}
+.searchNature{
+    /* margin-left: 23%; */
+    width: 317px;
+}
+.example-full-width1{
+    width: 317px;
+  }
+.viewBtn{
+    
+}

@@ -1,0 +1,55 @@
+<div class="pro-list">
+
+    <div class="m-2">
+        <nav class="navbar navbar-light ">
+            <h6 class="navbar-brand" style="font-size: large;">Product List</h6>
+        </nav>
+
+        <div style="border-top: black solid 1px;">
+            <button class="purchase-Add-Button" routerLink="/bill-add-purchase-list/{{id}}/true">Add Purchase Data</button>
+        </div>
+
+       
+        <div class="container  bg-white">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th scope="col">S.no</th>
+                        <th scope="col">Product Name</th>
+                        <th scope="col">Quantity</th>
+                        <th scope="col">Cost Price Per Unit</th>
+                        <th scope="col">Expiry Date</th>
+                        <th scope="col">M.R.P per Unit</th>
+                        <th scope="col">Selling price per Unit</th>
+                        <th scope="col">Inventary Status</th>
+                        <th scope="col">Action</th>
+
+                    </tr>
+                </thead>
+                <tbody>
+
+                    <tr *ngFor="let proPurchase of productPurchaseList  ;let i = index">
+                        <th scope="row">{{i+1}}</th>
+                        <td>{{proPurchase.product.product_name}}</td>
+                        <td>{{proPurchase.quantity}}</td>
+                        <td>{{proPurchase.purchase_price}}</td>
+                        <td>{{proPurchase.exp_date}}</td>
+                        <td>{{proPurchase.mrp}}</td>
+                        <td>{{proPurchase.selling_price}}</td>
+                        <td>{{proPurchase.update_inventry_status}}</td>
+
+                        <td routerLink="/bill-add-purchase-list/{{proPurchase.bill_id}}">Edit</td>
+                        <td (click)="productPurchaseDelete(proPurchase.id)">Delete</td>
+
+                    </tr>
+            
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <div>
+        <label>total amount of all products => </label>
+        <label>{{totalAmount}}</label>
+    </div>
+</div>

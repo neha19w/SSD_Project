@@ -1,0 +1,26 @@
+*{
+    font-family:'Roboto', sans-serif;
+  }
+  
+nav{
+    background-color: #4967A4 !important;
+}
+.navbar{
+    margin: 0%;
+    padding: 0%;
+}
+nav a{
+    margin-left: 2%;
+    color: white;
+}
+nav label{
+    color: white;
+}
+nav img{
+   
+    
+}
+.right{
+    float: right;
+    margin-right: 2%;
+}

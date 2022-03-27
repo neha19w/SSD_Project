@@ -1,0 +1,211 @@
+<div class="add-main" style="width: 100%; height: 100%;">
+
+    <nav class="navbar navbar-light">
+        <a class="navbar-brand"> Create a new product </a>
+    </nav>
+
+    <div class="container  bg-white">
+        <div class="row">
+            <div class="add-data">
+                <div>
+
+                    <form [formGroup]="product_save_form" (ngSubmit)="on_create()">
+                        <div class="formGroup">
+                            <!-- <div class="card" >
+                                <img  *ngFor="let imageUrl of multiImageUrl"
+                                    style="width: 250px; height: 250px;" >
+                                <input formControlName="product_file" type="file" accept="image/*"
+                                    (change)="onImageAdd($event)" multiple="multiple">
+                            </div> -->
+                            <div class="cards">
+                                <img *ngFor="let imageUrl of multiImageUrl" [src]="imageUrl" for="files" style="width: 120px; height: 100px;">
+                                <input formControlName="product_file" type="file" accept="image/*" (change)="onImageAdd($event)"
+                                    multiple="multiple"  id="files" class="hidden" >
+                            </div>
+                            
+                            <table class="example-full-width" cellspacing="0">
+                                <tr>
+                                    <td>
+                                        <mat-form-field class="example-full-width">
+                                            <mat-label>Specify Product name</mat-label>
+                                            <input matInput type="text" formControlName="product_name">
+                                        </mat-form-field>
+                                    </td>
+
+                                    <td>
+                                        <mat-form-field class="example-full-width">
+                                            <mat-label>Specify Product Print name</mat-label>
+                                            <input matInput type="text" formControlName="product_name">
+                                        </mat-form-field>
+                                    </td>
+                                </tr>
+                            </table>
+
+
+                            <table class="example-full-width" cellspacing="0">
+                                <tr>
+                                    <td>
+                                        <p>Is product packed or loose?</p>
+                                        <mat-radio-group formControlName="packing_type" aria-label="Select an option">
+                                            <mat-radio-button value="p" >Piece
+                                            </mat-radio-button>
+                                            <mat-radio-button value="l" >loose
+                                            </mat-radio-button>
+                                        </mat-radio-group>
+                                    </td>
+                                    <td>
+
+                                        <mat-form-field class="searchCat">
+                                            <mat-label>Search Category </mat-label>
+                                            <mat-select formControlName="category">
+                                                <mat-option [value]="c.id" *ngFor="let c of categoryList">{{c.name}}
+                                                </mat-option>
+                                            </mat-select>
+                                        </mat-form-field>
+                                    </td>
+                                </tr>
+                            </table>
+
+
+                            <table class="example-full-width" cellspacing="0">
+                                <tr>
+                                    <td>
+                                        <mat-form-field class="example-full-width">
+                                            <mat-label>Specify Brand name</mat-label>
+                                            <input matInput formControlName="brand_name">
+                                        </mat-form-field>
+                                    </td>
+                                    <td>
+                                        <mat-form-field class="example-full-width">
+                                            <mat-label>Hsn</mat-label>
+                                            <input matInput formControlName="hsn">
+                                        </mat-form-field>
+                                    </td>
+                                </tr>
+                            </table>
+
+
+                            <table class="example-full-width" cellspacing="0">
+                                <tr>
+                                    <td>
+                                        <mat-form-field class="searchNature">
+                                            <mat-label>Select nature </mat-label>
+                                            <mat-select formControlName="nature">
+                                                <mat-option *ngFor="let c of natureList" [value]="c.id">{{c.name}}
+                                                </mat-option>
+
+                                            </mat-select>
+                                        </mat-form-field>
+                                    </td>
+                                    <td>
+                                        <mat-form-field class="example-full-width1">
+                                            <mat-label>Short Description</mat-label>
+                                            <input matInput formControlName="describtion">
+                                        </mat-form-field>
+                                    </td>
+                                </tr>
+                            </table>
+
+
+                            <table class="example-full-width" cellspacing="0">
+                                <tr>
+                                    <td>
+                                        <div class="example-button-row">
+                                            <button mat-raised-button>Cancel</button>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="example-button-row">
+                                            <button class="example-button-row2" mat-raised-button> {{submitbutton}}
+                                            </button>
+                                        </div>
+                                    </td>
+                                </tr>
+                            </table>
+
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<!-- old design -  -->
+
+<!-- <div>
+
+    <div>
+        <label>product_name</label>
+        <input type="text" formControlName="product_name">
+    </div>
+
+    <div>
+        <label>print_name</label>
+        <input type="text" formControlName="print_name">
+    </div>
+
+    <div>
+        <label>describtion</label>
+        <input type="text" formControlName="describtion">
+    </div>
+
+    <div>
+        <label>Is product packed or loose?
+        </label>
+        <br />
+
+        <label>
+            <input type="radio" value="p" formControlName="packing_type">
+            <span>Pieces</span>
+        </label>
+        <label>
+            <input type="radio" value="l" formControlName="packing_type">
+            <span>Loose</span>
+        </label>
+    </div>
+
+    <div>
+        <label>category</label>
+
+        <select formControlName="category">
+            <option [value]="c.id" *ngFor="let c of categoryList">{{c.name}}</option>
+        </select>
+    </div>
+
+    <div>
+        <label>brand_name</label>
+        <input type="text" formControlName="brand_name">
+    </div>
+
+    <div>
+        <label>hsn</label>
+        <input type="number" formControlName="hsn">
+    </div>
+
+    <div>
+        <label>nature</label>
+
+        <select formControlName="nature">
+            <option *ngFor="let c of natureList" [value]="c.id">{{c.name}}</option>
+        </select>
+    </div>
+
+    <div>
+        <label>Product Details</label>
+        <input type="text" formControlName="product_detail">
+    </div>
+
+    <div>
+        <img *ngFor="let imageUrl of multiImageUrl" [src]="imageUrl" style="width: 250px; height: 250px;">
+        <input formControlName="product_file" type="file" accept="image/*" (change)="onImageAdd($event)"
+            multiple="multiple">
+    </div>
+
+    <div>
+        <button type="submit"> {{submitbutton}} </button>
+    </div>
+
+</div> -->

@@ -1,0 +1,169 @@
+<div class="bill-list">
+
+    <nav class="navbar navbar-light ">
+        <h6 class="navbar-brand">{{headingAdd}}</h6>
+    </nav>
+
+    <div class="container  bg-white">
+        <div class="row">
+            <div class="add-data">
+                <form [formGroup]="billSaveForm" (ngSubmit)="addBill()">
+                    <div class="formGroup">
+
+                        <table class="example-full-width">
+                            <tr>
+                                <td>
+                                    <mat-form-field class="example-full-width">
+                                        <mat-label>Search The Payment Status </mat-label>
+
+                                        <mat-select formControlName="payment_status" required>
+                                            <mat-option value="Paid Full" class="bg-secondary text-white ">Paid Full
+                                            </mat-option>
+                                            <mat-option value="Pay Later" class="bg-secondary text-white "> Pay Later
+                                            </mat-option>
+                                        </mat-select>
+
+                                    </mat-form-field>
+                                </td>
+                                <td>
+                                    <mat-form-field class="example-full-width">
+                                        <mat-label>Specify Bill No.</mat-label>
+                                        <input matInput formControlName="bill_number" required>
+                                    </mat-form-field>
+                                </td>
+                                <td>
+                                    <!-- <mat-form-field class="columns example-full-width">
+                                        <mat-label>Choose image</mat-label>
+                                        <input formControlName="bill_image" type="file" accept="image/*" (change)="selectFile($event)">
+                                    </mat-form-field> -->
+                                    <mat-form-field class="columns example-full-width">
+                                        <mat-label *ngIf=" selectedFiles !== undefined; else newFile">
+                                            {{selectedFiles.name}}
+                                        </mat-label>
+                                        <ng-template #newFile>
+                                            <mat-label>Attach The bill (JPG,PNG Or PDF)</mat-label>
+                                        </ng-template>
+                                        <input matInput disabled>
+                                        <button mat-icon-button matSuffix (click)="fileInput.click()">
+                                            <mat-icon>attach_file</mat-icon>
+                                        </button>
+                                        <input hidden (change)="selectFile($event)" #fileInput type="file" id="file"
+                                            multiple="multiple" formControlName="bill_image">
+                                    </mat-form-field>
+                                </td>
+                            </tr>
+                        </table>
+
+
+                        <table class="example-full-width" cellspacing="0">
+                            <tr>
+                                <td>
+                                    <mat-form-field class="example-full-width">
+                                        <mat-label>Search Supplier</mat-label>
+                                        <!-- <input matInput formControlName="supplier_id"> -->
+                                        <mat-select formControlName="supplier_id" required>
+                                            <mat-option [value]="s.id" *ngFor="let s of SupplierList">{{s.name}}
+                                            </mat-option>
+                                        </mat-select>
+                                    </mat-form-field>
+                                </td>
+                                <td>
+                                    <mat-form-field class="example-full-width">
+                                        <mat-label>Specify Total Bill Amount</mat-label>
+                                        <input matInput formControlName="total_price">
+                                    </mat-form-field>
+                                </td>
+                                <td>
+                                    <mat-form-field class="example-full-width">
+                                        <mat-label>Specify Amount Paid</mat-label>
+                                        <input matInput formControlName="paid_amount">
+                                    </mat-form-field>
+                                </td>
+                            </tr>
+                        </table>
+
+
+                        <table class="example-full-width" cellspacing="0">
+                            <tr>
+                                <td>
+                                    <mat-form-field class="example-full-width">
+                                        <mat-label>Select Payment Method </mat-label>
+                                        <mat-select formControlName="payment_method">
+                                            <mat-option value="cash" class="bg-secondary text-white">cash</mat-option>
+                                            <mat-option value="online" class="bg-secondary text-white">online
+                                            </mat-option>
+                                            <mat-option value="bank" class="bg-secondary text-white">bank</mat-option>
+                                        </mat-select>
+                                    </mat-form-field>
+                                </td>
+                                <td>
+                                    <mat-form-field class="example-full-width">
+                                        <mat-label>Specify Transaction id</mat-label>
+                                        <input matInput formControlName="transaction_id">
+                                    </mat-form-field>
+                                </td>
+                                <td>
+                                    <mat-form-field class="example-full-width">
+                                        <mat-label>Select Date & Time of Transaction</mat-label>
+
+                                        <input matInput type="datetime-local" formControlName="bill_date_transaction">
+                                    </mat-form-field>
+                                </td>
+                            </tr>
+                        </table>
+
+                        <table class="example-full-width" cellspacing="0">
+                            <tr>
+                                <td>
+                                    <mat-form-field class="example-full-width2">
+
+                                        <mat-label>Select Date & Time of Purchase </mat-label>
+                                        <input matInput type="datetime-local" formControlName="bill_date_purchase">
+
+                                    </mat-form-field>
+                                </td>
+                                <td>
+                                    <mat-form-field class="example-full-width2">
+                                        <mat-label>Specify Order No.</mat-label>
+                                        <input matInput formControlName="order_number">
+                                    </mat-form-field>
+                                </td>
+                            </tr>
+                        </table>
+
+                        <table class="example-full-width" cellspacing="0">
+                            <tr>
+                                <td>
+                                    <div class="example-button-row">
+                                        <button class="btn-add1  p-1 ">cancel</button>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="example-button-row">
+                                        <button class="btn-add2  p-1 " type="submit">{{submitbutton}}</button>
+                                    </div>
+                                </td>
+                            </tr>
+                        </table>
+
+                    </div>
+                </form>
+
+            </div>
+        </div>
+    </div>
+
+
+    <!-- add product purchase list component -->
+   
+    <app-product-purchase-list *ngIf="currentBillId"></app-product-purchase-list>
+    
+     <!-- <app-product-purchase-list></app-product-purchase-list> -->
+    <!-- <app-product-purchase-list *ngIf="router.url === 'currentBillId'"></app-product-purchase-list> -->
+    <!-- <app-product-purchase-list *ngIf="router.url === '/bill/:id'"></app-product-purchase-list> -->
+    <!-- <app-product-purchase-list *ngIf="router.isActive('/bill/:id')"></app-product-purchase-list> -->
+    <!-- <app-product-purchase-list *ngIf="[routerLink] == '/bill/:id'"></app-product-purchase-list> -->
+   
+   
+</div>
+

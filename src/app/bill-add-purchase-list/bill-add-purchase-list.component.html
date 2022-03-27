@@ -1,0 +1,265 @@
+<div class="bill-list">
+
+    <nav class="navbar navbar-light ">
+        <h6 class="navbar-brand">{{headingAdd}}</h6>
+    </nav>
+
+    <div class="container  bg-white">
+        <div class="row">
+            <div class="add-data">
+                <form [formGroup]="billAddProdcutPurchaseForm" (ngSubmit)="addBillProductPurchaseSubmitData()">
+                    <div class="formGroup">
+                        <table class="example-full-width">
+                            <tr>
+                                <td>
+                                    <!-- <mat-form-field class="example-full-width">
+                                        <mat-label>Search product/barcode</mat-label>
+                                        <input matInput type="text" formControlName="product_name" (keyup)="onKeyUpProductName($event)">
+                                        <a class="addbtn"  routerLink="/products" target="_blank">Add Product</a>
+                                        <input matInput>
+                                    </mat-form-field> -->
+
+
+                                <!--  -->
+                              
+                                    <mat-form-field class="example-full-width">
+                                       
+                                        <mat-select placeholder="Search product/barcode" [formControl]="product_data" >
+                                            <mat-option>
+                                                <ngx-mat-select-search  [formControl]="product_name_local"></ngx-mat-select-search>
+                                              </mat-option>
+                                            
+                                            <mat-option *ngFor="let c of productName"  [value]="c">{{c.product_name}}
+                                            </mat-option>
+
+                                        </mat-select>
+                                        <a class="addbtn"  routerLink="/products" target="_blank">Add Product</a>
+                                    </mat-form-field>
+                                    
+    
+                                    <!--  -->
+                                    
+                                </td>
+
+
+                                <td>
+                                    <mat-form-field class="example-full-width">
+                                        <mat-label>Search Barcode </mat-label>
+
+                                        <input matInput formControlname="barcode" value="{{selected_barcode}}" type="number">
+
+                                    </mat-form-field>
+                                </td>
+
+                                <td>
+                                    <mat-form-field class="example-full-width">
+                                        <mat-label>Search Batch Number </mat-label>
+                                        <input matInput type="text" value="{{batchNumber}}" formControlName="batch_number"><br>
+                                        <a (click)="getGenerateBatchNumberApi()">generate random batch number</a>
+                                        <!-- <mat-label>generate batch number</mat-label> -->
+                                    </mat-form-field>
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td>
+                                    <mat-form-field class="example-full-width">
+                                        <mat-label>Specify Quantity</mat-label>
+
+                                        <input matInput type="number" formControlName="quantity">
+                                    </mat-form-field>
+                                </td>
+
+                                <td>
+                                    <mat-form-field class="example-full-width">
+                                        <mat-label>Cost price per Unit(in ru.)</mat-label>
+                                        <!-- <mat-button routerLink="/products">Add Product</mat-button> -->
+                                        <input matInput type="number" formControlName="purchase_price">
+                                    </mat-form-field>
+                                </td>
+
+                                <td>
+                                    <mat-form-field class="example-full-width">
+                                        <mat-label>Select Manufacturer Date </mat-label>
+                                        <input matInput type="date" formControlName="mfg_date">
+                                    </mat-form-field>
+                                </td>
+                            </tr>
+
+
+                            <tr>
+                                <td>
+                                    <mat-form-field>
+                                        <mat-label placeholer="expire by">Month</mat-label>
+
+                                        <mat-select>
+                                            <mat-option>expire by</mat-option>
+                                            <mat-option value="month" class="bg-secondary text-white ">Month
+                                            </mat-option>
+                                            <mat-option value="day" class="bg-secondary text-white "> Day
+                                            </mat-option>
+                                        </mat-select>
+                                    </mat-form-field>
+                                </td>
+
+                                <td>
+                                    <mat-form-field>
+                                        <mat-label>Month to expire product </mat-label>
+                                        <input matInput type="number" formControlName="exp_month">
+                                    </mat-form-field>
+                                </td>
+
+                                <td>
+                                    <mat-form-field>
+                                        <mat-label>Select Expiry Date </mat-label>
+                                        <input matInput type="date" formControlName="exp_date">
+                                    </mat-form-field>
+                                </td>
+                                <td>
+                                    <mat-form-field>
+                                        <mat-label>M.R.P per Unit(in ru.)</mat-label>
+
+                                        <input matInput formControlName="mrp">
+                                    </mat-form-field>
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td>
+                                    <mat-form-field class="example-full-width">
+                                        <mat-label>Is Tax Include the Cost Price</mat-label>
+                                        <select matNativeControl required formControlName="gst_type">
+                                            <option label="Select"></option>
+                                            <option value="inclusive">inclusive</option>
+                                            <option value="exclusive">exclusive</option>
+                                        </select>
+                                    </mat-form-field>
+                                </td>
+
+                                <td>
+                                    <mat-form-field>
+                                        <mat-label>Specify Tax Percentage</mat-label>
+
+                                        <input matInput formControlName="gst">
+                                    </mat-form-field>
+                                </td>
+
+                                <td>
+                                    <mat-form-field>
+                                        <mat-label placeholer="expire by">%</mat-label>
+
+                                        <mat-select formControlname="trade_discount_percentage">
+                                            <mat-option>INR</mat-option>
+                                            <mat-option value="%" class="bg-secondary text-white ">%
+                                            </mat-option>
+                                            <mat-option value="₹" class="bg-secondary text-white ">₹
+                                            </mat-option>
+                                        </mat-select>
+                                    </mat-form-field>
+                                </td>
+
+                                <td>
+                                    <mat-form-field class="example-full-width">
+                                        <mat-label>Specify Trade Discount in %</mat-label>
+
+                                        <input matInput formControlName="trade_discount_price">
+                                    </mat-form-field>
+                                </td>
+
+
+                            </tr>
+
+                            <tr>
+                                <td>
+                                    <mat-form-field class="example-full-width">
+                                        <mat-label>Taxable price Per Unit</mat-label>
+                                        <input matInput formControlName="taxable_price" type="number">
+                                    </mat-form-field>
+                                </td>
+                                <td>
+                                    <mat-form-field class="example-full-width">
+                                        <mat-label>Specify Bese Selling Price </mat-label>
+                                        <input matInput formControlName="selling_price" type="number">
+                                    </mat-form-field>
+                                </td>
+                                <td>
+                                    <mat-form-field class="example-full-width">
+                                        <mat-label>Specify Free item (if any) </mat-label>
+                                        <input matInput formControlName="free_product_name">
+                                    </mat-form-field>
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td>
+                                    <mat-form-field class="example-full-width">
+                                        <mat-label>Specify Quantity of Free item </mat-label>
+                                        <input matInput formControlName="free_product_quantity">
+                                    </mat-form-field>
+                                </td>
+                                <td>
+                                    <mat-form-field class="example-full-width">
+                                        <mat-label>Specify Default margin </mat-label>
+                                        <input matInput formControlName="default_margin">
+                                    </mat-form-field>
+                                </td>
+                                <td>
+                                    <mat-form-field>
+                                        <mat-label>%</mat-label>
+
+                                        <mat-select formControlName="margin_type">
+                                           
+                                            <mat-option value="INR" class="bg-secondary text-white ">₹
+                                            </mat-option>
+                                            <mat-option value="INR" class="bg-secondary text-white ">%
+                                            </mat-option>
+                                        </mat-select>
+                                    </mat-form-field>
+                                </td>
+                                <td>
+                                    <mat-form-field class="example-full-width">
+                                        <mat-label> Default amount </mat-label>
+                                        <input matInput formControlName="default_price">
+                                    </mat-form-field>
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td>
+                                    <mat-form-field class="example-full-width">
+                                        <mat-label> Mrp Base Selling Price Difference </mat-label>
+                                        <input matInput>
+                                    </mat-form-field>
+                                </td>
+
+                                <td>
+                                    <mat-form-field class="example-full-width">
+                                        <mat-label> Mrp Base Selling Price Difference % </mat-label>
+                                        <input matInput>
+                                    </mat-form-field>
+                                </td>
+                            </tr>
+
+
+                        </table>
+
+                        <table class="example-full-width" cellspacing="0">
+                            <tr>
+                                <td>
+                                    <div class="example-button-row">
+                                        <button class="btn-add1  p-1 ">cancel</button>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="example-button-row">
+                                        <button class="btn-add2  p-1 " type="submit"  >{{submitButton}} </button>
+                                    </div>
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

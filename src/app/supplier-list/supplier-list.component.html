@@ -1,0 +1,41 @@
+<nav class="navbar navbar-light ">
+    <h6 class="navbar-brand">SUPPLIER</h6>
+    <form class="form-inline">
+        <button class="btn-create" type="submit" routerLink="/bill-purchase-list"> + ADD A SUPPLIER [A]
+        </button>
+    </form>
+</nav>
+
+
+
+<div class="supply">
+    <table class="table table-bordered">
+        <thead>
+
+            <tr>
+                <th scope="col">S.no</th>
+                <th scope="col">Supllier No.</th>
+                <th scope="col">Supplier Name</th>
+                <th scope="col">GST NO.</th>
+                <th scope="col">Supplier Mobile No.</th>
+                <th scope="col">Location</th>
+                <th scope="col">Action</th>
+            </tr>
+
+        </thead>
+        <tbody>
+
+            <tr *ngFor="let sup of supplierList  ;let i = index">
+                <th scope="row">{{i+1}}</th>
+                <td>{{sup.supplier_no}}</td>
+                <td>{{sup.name}}</td>
+                <td>{{sup.gst_no}}</td>
+                <td>{{sup.mobile}}</td>
+                <td>{{sup.address}}</td>
+                <td>Delete</td>
+
+            </tr>
+
+        </tbody>
+    </table>
+</div>

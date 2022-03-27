@@ -1,0 +1,73 @@
+.bill-list{
+    background-color: rgb(217, 220, 223);
+    height: -webkit-fill-available;
+    transition: cubic-bezier(0.075, 0.82, 0.165, 1);
+  }
+  
+  .navbar{
+      background-color: rgb(217, 220, 223);
+      
+    }
+    .navbar-brand{
+      color:  rgb(74, 104, 162);
+      margin-left: 2%;
+     
+    }
+    h6{
+      font-size: 1rem;
+      font-weight: 500;
+    }
+    .bill{
+    
+      margin: auto;
+      background-color: white;
+    }
+    .add-data{
+      padding: 2%;
+      text-align: -webkit-center;
+  }
+  .container{
+    width: 90%;
+    margin: auto;
+  }
+  .buttons{
+    width: 75%;
+    margin: auto;
+  }
+    .submit-buttons{
+      margin-top: 1%;
+      text-align: end;
+    
+    }
+    .btn-add1{
+      margin-right: 1%;
+      background-color: rgb(74, 104, 162) ;
+      color: white;
+      border: none;
+      padding: 4px 8px;
+    }
+    .btn-add2{
+      background-color: rgb(74, 104, 162) ;
+      color: white;
+      padding: 4px 8px;
+      border: none;
+    }
+   
+  .example-full-width {
+    width: 100%;
+  }
+  .example-full-width2{
+    width: 70%;
+  }
+  .supplier-btn{
+    background-color: rgb(74, 104, 162) ;
+      color: white;
+  }
+  .addbtn{
+    margin-left: 64%;
+    background: rgb(75 , 105, 162);
+    padding: 2%;
+    border: none;
+    border-radius: 7px;
+    color: white;
+  }
